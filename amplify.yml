@@ -1,0 +1,26 @@
+# AWS Amplify Hosting build settings.
+#
+# The site is a static export (see `output: "export"` in next.config.ts), so Amplify only has to
+# serve the files in out/ — it does not need to run a Node server or rely on its Next.js SSR
+# support, which trails new Next releases.
+#
+# In the Amplify console, set the app's platform/framework to a static site ("Web") rather than
+# "Next.js - SSR". If Amplify auto-detected Next.js and chose SSR, the build will succeed but
+# serving will fail to find a server bundle.
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: out
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*

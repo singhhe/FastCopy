@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Design system — "Velocity"
+  Direction: bold, technical, dark. Near-black surfaces, volt-lime primary,
+  electric-cyan secondary accent, diagonal speed-streak motifs.
+  Display: Space Grotesk. Body: Geist Sans. Numerics/stats: Geist Mono.
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+  --color-lime: var(--lime);
+  --color-lime-foreground: var(--lime-foreground);
+  --color-cyan: var(--cyan);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #08090b;
+  --foreground: #f3f5f0;
+  --card: #101319;
+  --card-foreground: #f3f5f0;
+  --popover: #101319;
+  --popover-foreground: #f3f5f0;
+  --primary: #d7ff3e;
+  --primary-foreground: #0a0b0d;
+  --secondary: #181b21;
+  --secondary-foreground: #f3f5f0;
+  --muted: #14161b;
+  --muted-foreground: #9aa1ab;
+  --accent: #1b1e25;
+  --accent-foreground: #d7ff3e;
+  --destructive: #ff5a5f;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.13);
+  --ring: #d7ff3e;
+  --lime: #d7ff3e;
+  --lime-foreground: #0a0b0d;
+  --cyan: #4de8ff;
+  --chart-1: #d7ff3e;
+  --chart-2: #4de8ff;
+  --chart-3: #9aa1ab;
+  --chart-4: #5b6470;
+  --chart-5: #2a2e36;
+  --radius: 0.75rem;
+  --sidebar: #101319;
+  --sidebar-foreground: #f3f5f0;
+  --sidebar-primary: #d7ff3e;
+  --sidebar-primary-foreground: #0a0b0d;
+  --sidebar-accent: #181b21;
+  --sidebar-accent-foreground: #f3f5f0;
+  --sidebar-border: rgba(255, 255, 255, 0.09);
+  --sidebar-ring: #d7ff3e;
+}
+
+.dark {
+  --background: #08090b;
+  --foreground: #f3f5f0;
+  --card: #101319;
+  --card-foreground: #f3f5f0;
+  --popover: #101319;
+  --popover-foreground: #f3f5f0;
+  --primary: #d7ff3e;
+  --primary-foreground: #0a0b0d;
+  --secondary: #181b21;
+  --secondary-foreground: #f3f5f0;
+  --muted: #14161b;
+  --muted-foreground: #9aa1ab;
+  --accent: #1b1e25;
+  --accent-foreground: #d7ff3e;
+  --destructive: #ff5a5f;
+  --border: rgba(255, 255, 255, 0.09);
+  --input: rgba(255, 255, 255, 0.13);
+  --ring: #d7ff3e;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), var(--font-geist-sans), sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
+  .bg-streaks {
+    background-image: repeating-linear-gradient(
+      115deg,
+      color-mix(in oklab, var(--lime) 14%, transparent) 0px,
+      color-mix(in oklab, var(--lime) 14%, transparent) 1px,
+      transparent 1px,
+      transparent 84px
+    );
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes streak-across {
+  from {
+    transform: translateX(-140%) skewX(-12deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(140%) skewX(-12deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--lime) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px color-mix(in oklab, var(--lime) 0%, transparent);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 700ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-streak {
+  animation: streak-across 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
