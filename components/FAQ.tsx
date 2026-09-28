@@ -9,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 const FAQS = [
   {
     q: "Is FastCopy actually faster than Windows' built-in copy?",
-    a: "It's built to avoid the two things that make ordinary copies slow: dumb parallelism that thrashes a spinning disk, and a naive average that hides real slowdowns. FastCopy detects whether your source and destination are an HDD or SSD and tunes concurrency to match — serialized on spinning disks, parallel on SSDs.",
+    a: "Yes, on an SSD — Windows' copy dialog always moves one file at a time, whatever drive you're on. FastCopy detects an SSD and runs several files in parallel instead, so the drive is never sitting idle between files. On a spinning disk, FastCopy also copies one at a time — parallel copies on an HDD just thrash the heads and end up slower, so that's the one case where matching Windows is the right call, not beating it.",
   },
   {
     q: "Can I pause and resume a copy?",

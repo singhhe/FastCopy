@@ -12,6 +12,9 @@ frontend:
   phases:
     preBuild:
       commands:
+        # Next 16 requires Node >=20.9 (see package.json "engines"); Amplify's default build
+        # image may be older, and `npm ci` only warns on an engines mismatch, so pin it explicitly.
+        - nvm install 20 && nvm use 20
         - npm ci
     build:
       commands:

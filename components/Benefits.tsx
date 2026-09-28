@@ -11,9 +11,9 @@ import { Reveal } from "@/components/Reveal";
 const FEATURES = [
   {
     icon: HardDrive,
-    title: "Media-aware parallelism",
+    title: "Faster than Windows on an SSD",
     description:
-      "Detects whether a drive is an HDD or SSD via a real seek-penalty probe, then serializes on spinning disks to avoid head-thrash and parallelizes on SSDs — instead of guessing.",
+      "Windows' copy dialog always moves one file at a time. FastCopy detects the drive via a real seek-penalty probe and runs several files in parallel on an SSD, while staying serial on a spinning disk — where Windows' own approach is already correct, and blind parallelism would just thrash the heads and lose.",
     span: "lg:col-span-2",
   },
   {

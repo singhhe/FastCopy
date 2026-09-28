@@ -13,13 +13,15 @@ export function MediaSection() {
               Live transfer view
             </span>
             <h2 className="mt-6 text-balance font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Copies smarter,
-              <span className="text-lime"> not just faster.</span>
+              Windows copies one file at a time.
+              <span className="text-lime"> FastCopy doesn&apos;t.</span>
             </h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">
-              FastCopy probes whether your source and destination are spinning disks or SSDs,
-              then tunes concurrency to match — parallel where it helps, serialized where
-              parallelism would just cause head-thrash and slow you down.
+              Explorer&apos;s copy dialog always runs one file at a time, no matter what drive
+              you&apos;re on. FastCopy checks the drive first: several files at once on an SSD,
+              where the extra parallelism is free speed — and back to one at a time on a
+              spinning disk, where parallel copies would thrash the heads and run slower than
+              Windows, not faster.
             </p>
 
             <div className="mt-8 grid grid-cols-2 gap-4">
@@ -79,15 +81,27 @@ export function MediaSection() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2 text-center">
-                  {["SSD — parallel", "HDD — serialized"].map((label) => (
-                    <div
-                      key={label}
-                      className="rounded-lg border border-border bg-secondary/40 py-2 text-[11px] text-muted-foreground"
-                    >
-                      {label}
+                <div className="space-y-2.5 rounded-xl border border-border bg-secondary/30 p-3">
+                  <div className="flex items-center gap-3">
+                    <span className="w-24 shrink-0 text-[11px] text-muted-foreground">
+                      FastCopy — SSD
+                    </span>
+                    <div className="flex gap-1">
+                      {Array.from({ length: 4 }).map((_, i) => (
+                        <span key={i} className="h-2.5 w-6 rounded-full bg-lime" />
+                      ))}
                     </div>
-                  ))}
+                    <span className="text-[11px] text-muted-foreground">4 files at once</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="w-24 shrink-0 text-[11px] text-muted-foreground">
+                      Windows Explorer
+                    </span>
+                    <div className="flex gap-1">
+                      <span className="h-2.5 w-6 rounded-full bg-muted-foreground/50" />
+                    </div>
+                    <span className="text-[11px] text-muted-foreground">1 file at a time</span>
+                  </div>
                 </div>
               </div>
             </div>

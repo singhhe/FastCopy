@@ -24,11 +24,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "FastCopy — A Smarter File Copier for Windows",
   description:
-    "FastCopy is a free Windows desktop app that copies files smarter: media-aware parallelism that avoids hard-drive thrash, instant pause/resume/cancel, paste- and drag-to-start, and a background tray mode that copies for you. Free to use — donations welcome.",
+    "Windows' copy dialog moves one file at a time, even on a fast SSD. FastCopy copies several files in parallel on an SSD, stays serial on an HDD to avoid head-thrash, and adds instant pause/resume/cancel, optional verification, and a background tray mode. Free to use — donations welcome.",
   keywords: [
+    "faster than windows copy",
     "fast file copy windows",
     "windows file copy utility",
     "teracopy alternative",
+    "parallel file copy ssd",
     "bulk file copy software",
     "pause resume file copy",
     "background file copy tray app",
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FastCopy — A Smarter File Copier for Windows",
     description:
-      "Media-aware parallelism, instant pause/resume/cancel, and a background tray mode that copies for you. Free to use — donations welcome.",
+      "Windows copies one file at a time, even on an SSD. FastCopy runs several in parallel instead — plus instant pause/resume/cancel and optional verification. Free to use.",
     url: siteUrl,
     siteName: "FastCopy",
     type: "website",
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FastCopy — A Smarter File Copier for Windows",
     description:
-      "Media-aware parallelism, instant pause/resume/cancel, and a background tray mode that copies for you.",
+      "Windows copies one file at a time, even on an SSD. FastCopy runs several in parallel instead.",
   },
 };
 

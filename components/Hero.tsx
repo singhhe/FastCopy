@@ -6,7 +6,7 @@ import { DOWNLOAD_URL, PAYPAL_DONATE_URL } from "@/lib/donate";
 const HEADLINE_WORDS = ["Copy", "files", "the", "smart", "way."];
 
 const PROOF_POINTS = [
-  { icon: HardDrive, label: "Media-aware parallelism" },
+  { icon: HardDrive, label: "Parallel on SSD — Windows does 1 file at a time" },
   { icon: Pause, label: "Pause, resume, cancel — instantly" },
   { icon: Shield, label: "Optional post-copy verification" },
 ];
@@ -71,9 +71,11 @@ export function Hero() {
             className="mx-auto mt-7 max-w-2xl text-balance text-lg leading-relaxed text-muted-foreground animate-fade-up sm:text-xl"
             style={{ animationDelay: "620ms" }}
           >
-            FastCopy is a Windows app that detects whether you&apos;re copying to an SSD or a
-            spinning disk and tunes itself accordingly — instead of thrashing your HDD with
-            dumb parallelism like most copy tools.
+            Windows&apos; own copy dialog moves one file at a time, even when you&apos;re
+            dropping fifty onto a fast SSD that could handle them all at once. FastCopy detects
+            the drive and copies several files in parallel on an SSD — full speed, no waiting —
+            while staying serial on a spinning disk, where parallel copies would thrash the
+            heads and end up slower than Windows, not faster.
           </p>
 
           <div

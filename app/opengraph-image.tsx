@@ -71,7 +71,7 @@ export default function OpengraphImage() {
             maxWidth: 860,
           }}
         >
-          Media-aware parallelism, instant pause/resume, and a background tray mode for Windows.
+          Windows copies one file at a time. FastCopy runs several in parallel on an SSD.
         </div>
       </div>
     ),

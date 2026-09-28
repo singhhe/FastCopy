@@ -20,7 +20,12 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
   },
   {
     title: "Company",
-    links: [{ label: "About" }, { label: "Blog" }, { label: "Careers" }, { label: "Contact" }],
+    links: [
+      { label: "About" },
+      { label: "Blog" },
+      { label: "Careers" },
+      { label: "Contact", href: "mailto:singh.heeramani@gmail.com" },
+    ],
   },
   {
     title: "Resources",
@@ -64,21 +69,32 @@ export function Footer() {
               <Heart className="h-3.5 w-3.5 transition-colors group-hover/donate:text-lime" />
               Support FastCopy
             </a>
-            {/* TODO: swap in your real Discord/community, RSS, and support-email links. */}
+            {/* TODO: swap in your real Discord/community and RSS links. */}
             <div className="mt-6 flex gap-3">
               {[
                 { Icon: MessageCircle, label: "Community" },
                 { Icon: Rss, label: "Blog RSS feed" },
-                { Icon: Mail, label: "Email support" },
-              ].map(({ Icon, label }) => (
-                <span
-                  key={label}
-                  aria-label={`${label} (coming soon)`}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground/40"
-                >
-                  <Icon className="h-4 w-4" />
-                </span>
-              ))}
+                { Icon: Mail, label: "Email support", href: "mailto:singh.heeramani@gmail.com" },
+              ].map(({ Icon, label, href }) =>
+                href ? (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-lime/40 hover:text-foreground"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <span
+                    key={label}
+                    aria-label={`${label} (coming soon)`}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground/40"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </span>
+                )
+              )}
             </div>
           </div>
 
