@@ -8,9 +8,13 @@
 export const PAYPAL_DONATE_URL = "https://www.paypal.com/ncp/payment/3WW9T4GNQZ6KC";
 
 /**
- * TODO: point this at the real installer. There is no published build yet, so every
- * "Download" button on the page currently leads to this placeholder. Swap in a GitHub
- * Releases asset (e.g. .../releases/latest) or a file you host and nothing else needs
- * to change — every download CTA reads this one constant.
+ * Direct link to the release asset itself (not the releases page) - clicking Download starts
+ * the file saving immediately with no GitHub UI in between. GitHub also counts downloads of
+ * this exact asset automatically (see the release's own page for the count).
+ *
+ * When cutting a new version: update both this URL and the version number in the filename.
+ * Built from installer/FastCopy.iss in the FastCopy-App repo (`ISCC.exe installer\FastCopy.iss`
+ * after `dotnet publish -c Release -r win-x64 --self-contained true`).
  */
-export const DOWNLOAD_URL = "https://github.com/your-username/fastcopy/releases/latest";
+export const DOWNLOAD_URL =
+  "https://github.com/singhhe/FastCopy-App/releases/download/v1.0.0/FastCopy-Setup-1.0.0.exe";
